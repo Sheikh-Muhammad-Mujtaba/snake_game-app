@@ -5,7 +5,6 @@
 A classic Snake Game built with modern web technologies! Control the snake, eat food, and grow longer without hitting the walls or running into your own tail. Level up and increase your speed as you score points!
 
 ## Table of Contents
-
 - [Snake Game 🐍](#snake-game-)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
@@ -26,7 +25,7 @@ A classic Snake Game built with modern web technologies! Control the snake, eat 
 
 ## Demo
 
-Check out a live version of the game [here](https://your-live-demo-link.com).
+Check out a live version of the game [here](https://snake-game-app-eosin.vercel.app/).
 
 ![Snake Game Preview](./image.png)
 
@@ -35,7 +34,7 @@ Check out a live version of the game [here](https://your-live-demo-link.com).
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/snake-game.git
+   git clone https://github.com/Sheikh-Muhammad-Mujtaba/snake_game-app.git
    cd snake-game
    ```
 
