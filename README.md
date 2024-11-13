@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# Snake Game 🐍
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A classic Snake Game built with modern web technologies! Control the snake, eat food, and grow longer without hitting the walls or running into your own tail. Level up and increase your speed as you score points!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Table of Contents
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Snake Game 🐍](#snake-game-)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Demo](#demo)
+  - [Installation](#installation)
+  - [How to Play](#how-to-play)
+  - [Configuration](#configuration)
+  - [Technologies Used](#technologies-used)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+- **Smooth Movement**: Snake moves with responsive controls.
+- **Game Over Detection**: Game ends if the snake collides with itself.
+- **Level Up**: Speed gradually increases as you level up after every 5 points.
+- **Confetti & Sounds**: Celebratory sounds and visual effects on level up.
+- **High Score Tracking**: Tracks your highest score for each session.
+- **Customizable Grid Size**: Adjust the grid size easily in the configuration.
 
-To learn more about Next.js, take a look at the following resources:
+## Demo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Check out a live version of the game [here](https://your-live-demo-link.com).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![Snake Game Preview](./image.png)
 
-## Deploy on Vercel
+## Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repository**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone https://github.com/your-username/snake-game.git
+   cd snake-game
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+
+   ```bash
+   npm start
+   ```
+
+   The game should now be running on [http://localhost:3000](http://localhost:3000).
+
+## How to Play
+
+- Use the **arrow keys** (or **WASD** keys) to control the snake.
+- **Eat food** to grow longer and gain points.
+- Avoid running into Snake **Body** to stay alive.
+- Watch out! Every 5 points, the speed increases gradually by 5, making it more challenging.
+
+## Configuration
+
+You can configure various aspects of the game in the code:
+
+- **Grid Size**: `GRID_SIZE` determines the dimensions of the game grid.
+- **Speed**: Adjust the initial speed and speed increment.
+- **Score Threshold**: Customize the points required to level up.
+  
+These options are located in the within `moveSnake` function.
+
+## Technologies Used
+
+- **React**: Core framework used to build the game interface.
+- **TypeScript**: Adds type safety for a more robust codebase.
+- **CSS Modules / Styled Components**: Used for styling the game.
+- **Sound Effects & Animations**: For a dynamic gameplay experience.
+
