@@ -112,12 +112,12 @@ export default function SnakeGame() {
         case "ArrowDown":
           if (direction !== Direction.UP) setDirection(Direction.DOWN)
           break
-        case "ArrowLeft":
-          if (direction !== Direction.RIGHT) setDirection(Direction.LEFT)
-          break
-        case "ArrowRight":
-          if (direction !== Direction.LEFT) setDirection(Direction.RIGHT)
-          break
+          case "ArrowLeft":
+            if (direction === Direction.UP || direction === Direction.DOWN) setDirection(Direction.LEFT);
+            break;
+          case "ArrowRight":
+            if (direction === Direction.UP || direction === Direction.DOWN) setDirection(Direction.RIGHT);
+            break;
       }
     },
     [direction]
@@ -142,16 +142,20 @@ export default function SnakeGame() {
     const dy = touchEnd.y - touchStartRef.current.y
 
     if (Math.abs(dx) > Math.abs(dy)) {
-      if (dx > 0 && direction !== Direction.LEFT) {
-        setDirection(Direction.RIGHT)
-      } else if (dx < 0 && direction !== Direction.RIGHT) {
-        setDirection(Direction.LEFT)
+      if (direction === Direction.UP || direction === Direction.DOWN) {
+        if (dx > 0) {
+          setDirection(Direction.RIGHT);
+        } else {
+          setDirection(Direction.LEFT);
+        }
       }
     } else {
-      if (dy > 0 && direction !== Direction.UP) {
-        setDirection(Direction.DOWN)
-      } else if (dy < 0 && direction !== Direction.DOWN) {
-        setDirection(Direction.UP)
+      if (direction === Direction.LEFT || direction === Direction.RIGHT) {
+        if (dy > 0) {
+          setDirection(Direction.DOWN);
+        } else {
+          setDirection(Direction.UP);
+        }
       }
     }
 
@@ -328,27 +332,46 @@ export default function SnakeGame() {
             Game Over!
           </motion.div>
         )}
-        <div className="mt-4 grid grid-cols-3">
-          <Button variant="outline" size="sm" className="mt-4" onClick={() => setDirection(Direction.LEFT)}>
-            <ArrowLeftIcon className="w-4 h-4" />
-            <span className="sr-only">Left</span>
-          </Button>
-          <div className="flex flex-col items-center justify-center p-0">
-            <Button variant="outline" size="sm" onClick={() => setDirection(Direction.UP)}>
-              <ArrowUpIcon className="w-4 h-4" />
-              <span className="sr-only">Up</span>
-            </Button>
-
-            <Button variant="outline" size="sm" onClick={() => setDirection(Direction.DOWN)}>
-              <ArrowDownIcon className="w-4 h-4" />
-              <span className="sr-only">Down</span>
-            </Button>
-          </div>
-          <Button variant="outline" size="sm" className="mt-4" onClick={() => setDirection(Direction.RIGHT)}>
-            <ArrowRightIcon className="w-4 h-4" />
-            <span className="sr-only">Right</span>
-          </Button>
-        </div>
+          <div className="mt-4 grid grid-cols-3">
+    <Button
+      variant="outline"
+      size="sm"
+      className={`mt-4 ${direction === Direction.RIGHT ? 'opacity-50 pointer-events-none' : ''}`}
+      onClick={() => setDirection(Direction.LEFT)}
+    >
+      <ArrowLeftIcon className="w-4 h-4" />
+      <span className="sr-only">Left</span>
+    </Button>
+    <div className="flex flex-col items-center justify-center p-0">
+      <Button
+        variant="outline"
+        size="sm"
+        className={`${direction === Direction.DOWN ? 'opacity-50 pointer-events-none' : ''}`}
+        onClick={() => setDirection(Direction.UP)}
+      >
+        <ArrowUpIcon className="w-4 h-4" />
+        <span className="sr-only">Up</span>
+      </Button>
+      <Button
+        variant="outline"
+        size="sm"
+        className={`${direction === Direction.UP ? 'opacity-50 pointer-events-none' : ''}`}
+        onClick={() => setDirection(Direction.DOWN)}
+      >
+        <ArrowDownIcon className="w-4 h-4" />
+        <span className="sr-only">Down</span>
+      </Button>
+    </div>
+    <Button
+      variant="outline"
+      size="sm"
+      className={`mt-4 ${direction === Direction.LEFT ? 'opacity-50 pointer-events-none' : ''}`}
+      onClick={() => setDirection(Direction.RIGHT)}
+    >
+      <ArrowRightIcon className="w-4 h-4" />
+      <span className="sr-only">Right</span>
+    </Button>
+  </div>
       </motion.div>
     </div>
   )
